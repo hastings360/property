@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  margin: 0px;
+  font-size: 1rem;
+}
+.container{
+  width: 1000px;
+  margin: 0 auto;
+}
+.gray-bg{
+  min-height: 400px;
+  background-color: #8c8c8c;
+}
+h2{
+  font-size: 4em;
+  text-align: center;
+  color: #99badd;
+  text-shadow: 1px 1px 0 #000;
+  margin: 5px 0;
+}
+
+@media screen and (max-width: 1020px){
+  .container{
+    width: 94%;
+    padding: 0 3%;
+  }
+}
+@media screen and (max-width: 767px){
+  body{
+    font-size: 0.8rem;
+  }
+  h1{
+    font-size: 3em !important;
+  }
+}

@@ -1,0 +1,34 @@
+.col-item{
+  width: 50%;
+  float: left;
+}
+h3{
+  text-align: center;
+  font-size: 2em;
+}
+.item ul{
+  padding: 0;
+}
+.item ul li{
+  list-style: none;
+  background-color: #38a608;
+  margin-left: 5px;
+  padding: 5px;
+  font-size: 1.5em;
+  text-align: center;
+}
+.item ul li::first-letter{
+  color: #fff;
+}
+.item p{
+  font-size: 1.3em;
+}
+
+@media screen and (max-width: 1000px){
+  .col-item{
+    width: 100%;
+  }
+  .item ul li{
+    margin-left: 0px;
+  }
+}

@@ -1,0 +1,95 @@
+#splash-bg{
+  height: 100vh;
+  background: #a3a3a3 url("../../assets/imgs/pigeon-atop-skyscraper.jpeg") no-repeat 80% 80%/cover;
+}
+nav{
+  padding-top: 50px;
+  text-align: center;
+}
+ul{
+  width: 70%;
+  margin: 0 15% 100px 15%;
+  padding: 0;
+}
+nav li{
+  display: inline-block;
+  height: 100px;
+  width: 33.333%;
+}
+li a{
+  text-decoration: none;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000;
+  font-size: 2em;
+}
+li a:hover span{
+  color: #bc0600;
+}
+.icons{
+  height: 100%;
+  width: 100px;
+  box-shadow: 5px 5px 5px #000;
+  border-radius: 100%;
+}
+span{
+  display: block;
+}
+#rec-icon{
+  text-decoration: none;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000;
+  font-size: 2em;
+}
+#rec-icon:hover span{
+  color: #bc0600;
+}
+#rec-icon img{
+  box-shadow: 0 0 10px 2px #000;
+  border-radius: 10px;
+}
+h1{
+  text-align: center;
+  font-size: 6em;
+  text-shadow: 1px 1px 0 #fff;
+  color: #99badd;
+}
+#pay-online{
+  text-align: center;
+}
+#pay-online a{
+  text-decoration: none;
+  font-size: 2em;
+  color: #fff;
+  border-radius: 5px;
+  background-color: #00000099;
+  padding: 10px;
+}
+#pay-online a:hover{
+  color: #000;
+  background-color: #ffffff99;
+}
+#scroller{
+  position: absolute;
+  bottom: 5px;
+  left: calc(50% - 40px);
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-top: 40px solid #8b8f96;
+  opacity: 0.5;
+  animation-name: blinker;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+#scroller:hover{
+  border-top: 40px solid #bc0600;
+}
+@keyframes blinker{
+    0%   {opacity: 0.5;}
+    50%  {opacity: 1;}
+    100%  {opacity: 0.5;}
+}
+@media screen and (max-width: 767px){
+  ul{
+    margin-bottom: 20px;
+  }
+}
