@@ -4,7 +4,7 @@ form{
 form label,form input, form textarea{
   display: block;
   padding-left: 5px;
-  width: calc(100% - 5px);
+  width: calc(100% - 10px);
   border: none;
   font-size: 1em;
 }
@@ -21,8 +21,8 @@ form input{
 }
 form textarea{
   height: 60px;
-  max-width: calc(100% - 5px);
-  min-width: calc(100% - 5px);
+  max-width: calc(100% - 10px);
+  min-width: calc(100% - 10px);
   padding-top: 5px;
 }
 .error-message{
@@ -47,7 +47,16 @@ form button:hover{
   position: absolute;
   top: 0px;
   left: 0px;
-  height: 80%;
+  height: 90%;
   width: 100%;
-  background-color: #fff;
+  background-color: #99badd;
+  color: #fff;
+  text-align: center;
+  font-size: 2em;
+}
+.mail-message p{
+  margin-top: 100px;
+}
+.message-error{
+  background-color: #e23d3d;
 }

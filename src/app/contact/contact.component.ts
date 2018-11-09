@@ -25,7 +25,7 @@ export class ContactComponent {
   onSubmit(formData: FormGroup): void {
     this.mail.sendMail(formData)
       .then(success => {
-        console.log(success);
+        // console.log(success);
         this.received = true;
       })
       .catch(error => {

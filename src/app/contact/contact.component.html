@@ -1,4 +1,4 @@
-<section class="gray-bg">
+<section id="contact" class="gray-bg">
   <div class="container">
       <h2>Contact</h2>
       <div id="contact-bg">
@@ -24,12 +24,12 @@
           </div>
           <button type="submit" id="contact-submit" *ngIf="contactForm.valid"><strong>Send</strong></button>
         </form>
-        <!--splash page for email sent-->
+        <!--message for email sent-->
         <div *ngIf="received" class="mail-message">
           <p>Thank you for sending me your information.  <br>I will be in touch soon!</p>
         </div>
-        <!--splash page for email sent-->
-        <div *ngIf="error" class="mail-message">
+        <!--message for email sent-->
+        <div *ngIf="error" class="mail-message message-error">
           <p>There seems to be an issue with the email server.  Please try again soon.</p>
         </div>
       </div>
