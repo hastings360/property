@@ -92,4 +92,10 @@ h1{
   ul{
     margin-bottom: 20px;
   }
+  .icons{
+    height: 80%;
+    width: 80px;
+    box-shadow: 5px 5px 5px #000;
+    border-radius: 100%;
+  }
 }
