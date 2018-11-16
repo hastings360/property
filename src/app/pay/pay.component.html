@@ -1,3 +1,44 @@
+<title>Make Payment - Cottage on Blair</title>
 <section id="pay-online">
-  pay works!
+  <h1>Make Payment</h1>
+  <div class="container gray-bg">
+    <form id="pay-form"
+        [formGroup]="payForm"
+        (ngSubmit)="onSubmit(payForm.value)"
+        >
+          <div class="form-group">
+
+            <label for="amount-input">Amount</label>
+            <input id="amount" type="currency" class="form-control" [formControl]="payForm.controls['amount']" [class.error]="!payForm.controls['amount'].valid" placeholder="$">
+            <div class="error-message" *ngIf="!payForm.controls['amount'].valid">$ 0000.00</div>
+
+            <label for="name-input">Name</label>
+            <input type="text" class="form-control" [formControl]="payForm.controls['name']" [class.error]="!payForm.controls['name'].valid">
+            <div class="error-message" *ngIf="!payForm.controls['name'].valid">Please type your full name</div>
+
+            <label for="email-input">Email</label>
+            <input type="email" class="form-control" [formControl]="payForm.controls['email']" [class.error]="!payForm.controls['email'].valid">
+            <div class="error-message" *ngIf="!payForm.controls['email'].valid">Please provide a valid email (email@something.com)</div>
+
+            <label for="reason-input">Reason for Payment</label>
+            <input type="text" class="form-control" [formControl]="payForm.controls['reason']" [class.error]="!payForm.controls['reason'].valid">
+            <div class="error-message" *ngIf="!payForm.controls['reason'].valid">Payment Reason (ie: rent, utilites, deposit)</div>
+
+            <label for="unit-input">Unit</label>
+            <input type="text" class="form-control" [formControl]="payForm.controls['unit']" [class.error]="!payForm.controls['unit'].valid">
+            <div class="error-message" *ngIf="!payForm.controls['unit'].valid">Room #, House address, etc..</div>
+
+            <label for="message">Message</label>
+            <textarea type="text" class="form-control" rows="2" cols="50" [formControl]="payForm.controls['message']" [class.error]="!payForm.controls['message'].valid" placeholder="Optional"></textarea>
+            <div class="error-message" >Special Instructions, requests?</div>
+
+          </div>
+          <p>Is everything filled out correctly?</p>
+          <button type="submit" id="pay-submit" ><strong>Go to Billing Info</strong></button>
+
+          <app-stripe [label]="label" [amount]="amount">Loading...</app-stripe>
+      </form>
+
+
+  </div>
 </section>

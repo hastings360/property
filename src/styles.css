@@ -11,6 +11,12 @@ body{
   min-height: 400px;
   background-color: #8c8c8c;
 }
+h1{
+  text-align: center;
+  font-size: 6em;
+  text-shadow: 1px 1px 0 #fff;
+  color: #99badd;
+}
 h2{
   font-size: 4em;
   text-align: center;

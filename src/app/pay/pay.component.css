@@ -1,0 +1,72 @@
+h1{
+  font-size: 3.5em;
+  text-shadow: 1px 1px 0 #000;
+}
+#pay-online{
+  margin-bottom: 20px;
+}
+#pay-form{
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+}
+#pay-form label, #pay-form input, #pay-form div, #pay-form textarea{
+  display: block;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 5px;
+}
+label{
+  font-size: 1.8em;
+  color: #99badd;
+  text-shadow: 1px 1px 0 #000;
+  text-align: right;
+}
+.error-message{
+  color: #fff;
+}
+#amount{
+  height: 50px;
+  font-size: 2em;
+}
+input{
+  height: 40px;
+  font-size: 1.8em;
+  border-radius: 10px;
+  border: none;
+}
+textarea{
+  font-size: 1.2em;
+  max-width: 80%;
+  max-height: 400px;
+  min-height: 50px;
+  min-width: 80%;
+}
+p{
+  text-align: center;
+  font-size: 1.2em;
+}
+#pay-submit{
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 1.2em;
+  color: #000;
+  background-color: #99badd;
+  border-radius: 5px;
+}
+#pay-submit:hover{
+  color: #99badd;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px){
+  #pay-form label, #pay-form input, #pay-form div, #pay-form textarea{
+    width: 95%;
+    margin-right: 15px;
+    max-width: 95%;
+    min-width: 95%;
+  }
+}
