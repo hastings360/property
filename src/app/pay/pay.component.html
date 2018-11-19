@@ -36,7 +36,7 @@
           <p>Is everything filled out correctly?</p>
           <button type="submit" id="pay-submit" ><strong>Go to Billing Info</strong></button>
       </form>
-      <div id="stripe-container">
+      <div id="stripe-container" *ngIf="billingReady">
         <h2>Use this new pay feature in your browser</h2>
         <app-stripe  [label]="label" [amount]="amount">Loading...</app-stripe>
         <h2>If that doesn't suit you, go directly to PayPal or VenMo</h2>
