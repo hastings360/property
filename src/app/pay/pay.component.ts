@@ -19,17 +19,17 @@ export class PayComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private mail: MailerService) {
     this.payForm = fb.group({
-        'amount': ['', Validators.compose([Validators.required, Validators.pattern(/\d+\.\d{2}/)])],
+        'amount': ['', Validators.compose([Validators.required])],
         'name': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
         'email': ['', Validators.compose([Validators.required, Validators.pattern(/\w+@\w+/)])],
         'reason': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-        'unit': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
+        'unit': ['', Validators.compose([Validators.required])],
         'message': ['', Validators.compose([Validators.minLength(4)])],
     });
   }
 
   ngOnInit() {
-    console.log(this.label);
+
   }
 
   onSubmit(formValue) {
