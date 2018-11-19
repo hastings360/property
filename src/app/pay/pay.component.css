@@ -2,6 +2,14 @@ h1{
   font-size: 3.5em;
   text-shadow: 1px 1px 0 #000;
 }
+h2{
+  font-size: 2em;
+  color: #000;
+  text-shadow: none;
+}
+#pay-bg{
+  position: relative;
+}
 #pay-online{
   margin-bottom: 20px;
 }
@@ -60,6 +68,33 @@ p{
   color: #99badd;
   background-color: #fff;
   cursor: pointer;
+}
+
+#stripe-container{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #86af72;
+  top: 0px;
+  left: 0px;
+}
+#stripe-container p{
+  color: #fff;
+  text-shadow: 1px 1px 0px #000;
+}
+#stripe-container a{
+  text-decoration: none;
+}
+#stripe-container button{
+  display: block;
+  margin: 0 auto;
+  font-size: 1.5em;
+  padding: 5px;
+}
+#stripe-container button:hover{
+  cursor: pointer;
+  background-color: #99badd;
+  color: #fff;
 }
 
 @media screen and (max-width: 767px){
