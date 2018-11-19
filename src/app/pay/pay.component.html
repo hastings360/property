@@ -9,7 +9,7 @@
           <div class="form-group">
 
             <label for="amount-input">Amount</label>
-            <input id="amount" type="currency" class="form-control" [formControl]="payForm.controls['amount']" [class.error]="!payForm.controls['amount'].valid" placeholder="$">
+            <input id="amount" type="number" class="form-control" [formControl]="payForm.controls['amount']" [class.error]="!payForm.controls['amount'].valid" placeholder="$">
             <div class="error-message" *ngIf="!payForm.controls['amount'].valid">$ 0000.00</div>
 
             <label for="name-input">Name</label>
