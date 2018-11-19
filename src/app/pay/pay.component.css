@@ -70,7 +70,7 @@ p{
   cursor: pointer;
 }
 
-#stripe-container{
+#billing-container{
   position: absolute;
   height: 100%;
   width: 100%;
@@ -78,23 +78,26 @@ p{
   top: 0px;
   left: 0px;
 }
-#stripe-container p{
+#billing-container p{
   color: #fff;
   text-shadow: 1px 1px 0px #000;
 }
-#stripe-container a{
+#billing-container a{
   text-decoration: none;
 }
-#stripe-container button{
+#billing-container button{
   display: block;
   margin: 0 auto;
   font-size: 1.5em;
   padding: 5px;
 }
-#stripe-container button:hover{
+#billing-container button:hover{
   cursor: pointer;
   background-color: #99badd;
   color: #fff;
+}
+#stripe-container{
+  width: 50px;
 }
 
 @media screen and (max-width: 767px){

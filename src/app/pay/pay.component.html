@@ -36,14 +36,18 @@
           <p>Is everything filled out correctly?</p>
           <button type="submit" id="pay-submit" ><strong>Go to Billing Info</strong></button>
       </form>
-      <div id="stripe-container" *ngIf="billingReady">
-        <h2>Use this new pay feature in your browser</h2>
-        <app-stripe  [label]="label" [amount]="amount">Loading...</app-stripe>
+      <div id="billing-container" *ngIf="billingReady">
+
+        <h2>Use Google Pay or Apple Pay in your browser</h2>
+        <div id="stripe-container"><app-stripe  [label]="label" [amount]="amount">Loading...</app-stripe></div>
+
         <h2>If that doesn't suit you, go directly to PayPal or VenMo</h2>
         <div></div>
+
         <h2>Still can't find what you need?</h2>
         <p>You can mail a check.  Please use the contact form for further information.</p>
         <a href="/home#contact"><button>Contact</button></a>
+
       </div>
 
 
