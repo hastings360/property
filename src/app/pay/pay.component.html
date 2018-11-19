@@ -36,7 +36,7 @@
           <p>Is everything filled out correctly?</p>
           <button type="submit" id="pay-submit" ><strong>Go to Billing Info</strong></button>
 
-          <app-stripe [label]="label" [amount]="amount">Loading...</app-stripe>
+          <app-stripe *ngIf="billingReady" [label]="label" [amount]="amount">Loading...</app-stripe>
       </form>
 
 

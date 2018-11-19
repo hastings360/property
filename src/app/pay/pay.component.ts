@@ -15,6 +15,7 @@ export class PayComponent implements OnInit {
 
   public label: string;
   public amount: number;
+  public billingReady = false;
 
   constructor(private fb: FormBuilder, private mail: MailerService) {
     this.payForm = fb.group({
@@ -34,5 +35,6 @@ export class PayComponent implements OnInit {
   onSubmit(formValue) {
     this.label = formValue.unit + formValue.reason;
     this.amount = formValue.amount;
+    this.billingReady = true;
   }
 }
