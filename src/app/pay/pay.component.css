@@ -54,6 +54,7 @@ textarea{
 p{
   text-align: center;
   font-size: 1.2em;
+  padding: 1em;
 }
 #pay-submit{
   display: block;
@@ -74,10 +75,18 @@ p{
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: #86af72;
+  background-color: #619b68;
   top: 0px;
   left: 0px;
-
+}
+#disclaimer{
+  padding: 0 2em;
+  font-size: 0.9em;
+  color: #000;
+}
+#disclaimer span{
+  color: #fff;
+  background-color:
 }
 #billing-container p{
   color: #fff;
@@ -88,9 +97,11 @@ p{
 }
 #billing-container button{
   display: block;
-  margin: 0 auto;
+  margin: 30px auto 0 auto;
   font-size: 1.5em;
   padding: 5px;
+  width: 185px;
+  height: 60px;
 }
 #billing-container button:hover{
   cursor: pointer;
@@ -98,15 +109,21 @@ p{
   color: #fff;
 }
 #stripe-button{
-  width: 100px;
-  margin: 0 auto;
+  width: 185px;
+  margin: 30px auto 0 auto;
+  margin-top: 30px;
 }
 .payment-types{
-  min-height: 30%;
+  min-height: 25%;
   padding-top: 40px;
 }
-#paypal-venmo{
+#paypal{
   background-color: lightgray;
+}
+#paypal a{
+  display: block;
+  margin: 30px auto 0 auto;
+  width: 185px;
 }
 
 @media screen and (max-width: 767px){

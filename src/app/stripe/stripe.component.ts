@@ -36,12 +36,12 @@ export class StripeComponent implements AfterViewInit {
       this.elements = this.pmt.stripe.elements();
 
       // 3. Create listener
-      this.paymentRequest.on('source', async (event) =>{
+      this.paymentRequest.on('source', async (event) => {
           console.log(event);
 
           // server side http needs to go here
           setTimeout(() => {
-            event.complete('success')
+            event.complete('success');
           }, 1000);
       });
 

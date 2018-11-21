@@ -14,8 +14,11 @@ export class PayComponent implements OnInit {
   public error = false;
 
   public label: string;
+  public stripeAmount: number;
   public amount: number;
   public billingReady = false;
+
+  public paypalUrl: string;
 
   constructor(private fb: FormBuilder, private mail: MailerService) {
     this.payForm = fb.group({
@@ -34,7 +37,11 @@ export class PayComponent implements OnInit {
 
   onSubmit(formValue) {
     this.label = formValue.unit + formValue.reason;
-    this.amount = formValue.amount;
+    this.stripeAmount = ((formValue.amount * 0.029) + formValue.amount) * 100;
+    this.amount = (formValue.amount * 0.029) + formValue.amount;
+    console.log(this.amount);
     this.billingReady = true;
+    this.paypalUrl = 'https://www.paypal.me/LarryHastings/' + this.amount;
+    window.scrollTo(0, 0);
   }
 }
