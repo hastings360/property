@@ -128,7 +128,6 @@ p{
 @media screen and (max-width: 767px){
   #pay-form label, #pay-form input, #pay-form div, #pay-form textarea{
     width: 95%;
-    margin-right: 15px;
     max-width: 95%;
     min-width: 95%;
   }
