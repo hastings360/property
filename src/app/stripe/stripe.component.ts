@@ -65,7 +65,7 @@ export class StripeComponent implements AfterViewInit {
 
     if (result) {
       this.prButton.mount(this.payElement.nativeElement);
-    } else{
+    } else {
       console.error('your browser does not support this new feature!');
     }
   }
