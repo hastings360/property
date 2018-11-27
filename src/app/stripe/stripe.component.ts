@@ -8,8 +8,7 @@ import { StripeService } from '../stripe.service';
 })
 export class StripeComponent implements AfterViewInit {
 
-  @Input() amount: number;
-  @Input() label: string;
+  @Input() formData: any;
 
   elements: any;
   paymentRequest: any;
@@ -27,8 +26,8 @@ export class StripeComponent implements AfterViewInit {
         country: 'US',
         currency: 'usd',
         total: {
-          amount: this.amount,
-          label: this.label
+          amount: this.formData.amount,
+          label: this.formData.label
         }
       });
 
@@ -36,13 +35,13 @@ export class StripeComponent implements AfterViewInit {
       this.elements = this.pmt.stripe.elements();
 
       // 3. Create listener
-      this.paymentRequest.on('source', async (event) => {
+      this.paymentRequest.on('token', async (event) => {
           console.log(event);
 
           // server side http needs to go here
-          setTimeout(() => {
+          /*setTimeout(() => {
             event.complete('success');
-          }, 1000);
+          }, 1000);*/
       });
 
       // 4. Create button

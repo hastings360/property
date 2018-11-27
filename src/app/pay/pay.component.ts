@@ -7,17 +7,16 @@ import { MailerService } from '../mailer.service';
   templateUrl: './pay.component.html',
   styleUrls: ['./pay.component.css']
 })
+
+
+
 export class PayComponent implements OnInit {
 
   public payForm: FormGroup;
   public received = false;
   public error = false;
-
-  public label: string;
-  public stripeAmount: number;
-  public amount: number;
+  public formData: any;
   public billingReady = false;
-
   public paypalUrl: string;
 
   constructor(private fb: FormBuilder, private mail: MailerService) {
@@ -36,12 +35,13 @@ export class PayComponent implements OnInit {
   }
 
   onSubmit(formValue) {
-    this.label = formValue.unit + formValue.reason;
-    this.stripeAmount = ((formValue.amount * 0.029) + formValue.amount) * 100;
-    this.amount = (formValue.amount * 0.029) + formValue.amount;
-    console.log(this.amount);
+    this.formData = formValue;
+    this.formData.label = formValue.unit + formValue.reason;
+    this.formData.amount = (formValue.amount * 0.029) + formValue.amount;
+    this.formData.stripeAmount = this.formData.amount * 100;
+    this.paypalUrl = 'https://www.paypal.me/LarryHastings/' + this.formData.amount;
+
     this.billingReady = true;
-    this.paypalUrl = 'https://www.paypal.me/LarryHastings/' + this.amount;
     window.scrollTo(0, 0);
   }
 }
