@@ -29,7 +29,7 @@ export class StripeComponent implements AfterViewInit {
           amount: this.formData.amount,
           label: this.formData.label
         },
-        requestPayerName: 'true'
+        requestPayerName: true
       });
 
       // 2. Init elements - UI
