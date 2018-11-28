@@ -26,7 +26,7 @@ export class StripeComponent implements AfterViewInit {
         country: 'US',
         currency: 'usd',
         total: {
-          amount: this.formData.amount,
+          amount: this.formData.stripeAmount,
           label: this.formData.label
         },
         requestPayerName: true
