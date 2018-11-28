@@ -38,7 +38,7 @@ export class PayComponent implements OnInit {
     this.formData = formValue;
     this.formData.label = formValue.unit + formValue.reason;
     this.formData.amount = this.calcAmt(formValue.amount, 'stripe');
-    this.paypalUrl = 'https://www.paypal.me/LarryHastings/' + this.calcAmt(this.formData.amount, 'paypal');
+    this.paypalUrl = 'https://www.paypal.me/LarryHastings/' + this.calcAmt(formValue.amount, 'paypal');
 
     this.billingReady = true;
     window.scrollTo(0, 0);
@@ -47,9 +47,9 @@ export class PayComponent implements OnInit {
   calcAmt(amt, service) {
     const feeAmt = (amt * 0.029) + amt;
 
-    if (service = 'paypal') {
+    if (service === 'paypal') {
       return feeAmt;
-    } else if (service = 'stripe') {
+    } else if (service === 'stripe') {
       if (feeAmt > 9) {
         return feeAmt * 100;
       } else {
