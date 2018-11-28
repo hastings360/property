@@ -28,14 +28,26 @@ export class StripeComponent implements AfterViewInit {
         total: {
           amount: this.formData.amount,
           label: this.formData.label
-        }
+        },
+        requestPayerName: 'true'
       });
 
       // 2. Init elements - UI
       this.elements = this.pmt.stripe.elements();
 
-      // 3. Create listener
-      this.paymentRequest.on('token', async (event) => {
+      // 3. Create button
+      this.prButton = this.elements.create('paymentRequestButton', {
+        paymentRequest: this.paymentRequest,
+        style: {
+          paymentRequestButton: {
+            type: 'buy', // 'default' | 'donate' | 'buy',
+            theme:  'dark' // 'dark' | 'light' | 'light-outline'
+          }
+        }
+      });
+
+      // 4. Create listener
+      this.paymentRequest.on('source', async (event) => {
           console.log(event);
 
           // server side http needs to go here
@@ -44,22 +56,11 @@ export class StripeComponent implements AfterViewInit {
           }, 1000);*/
       });
 
-      // 4. Create button
-      this.prButton = this.elements.create('paymentRequestButton', {
-          paymentRequest: this.paymentRequest,
-          style: {
-            paymentRequestButton: {
-              type: 'buy', // 'default' | 'donate' | 'buy',
-              theme:  'dark' // 'dark' | 'light' | 'light-outline'
-            }
-          }
-      });
-
       // 5. Mount button async
       this.mountButton();
   }
 
-  async mountButton(){
+  async mountButton() {
     const result = await this.paymentRequest.canMakePayment();
 
     if (result) {
