@@ -601,16 +601,22 @@ var PayComponent = /** @class */ (function () {
         window.scrollTo(0, 0);
     };
     PayComponent.prototype.calcAmt = function (amt, service) {
-        var feeAmt = (amt * 0.029) + amt;
-        if (service === 'paypal') {
-            return feeAmt;
-        }
-        else if (service === 'stripe') {
-            if (feeAmt > 9) {
-                return feeAmt * 100;
+        var fee = amt * 0.029;
+        var total = amt + fee;
+        if (total > 9) {
+            if (service === 'stripe') {
+                return total * 100;
             }
-            else {
-                return parseInt(feeAmt.toPrecision(3), 0) * 100;
+            else if (service === 'paypal') {
+                return total;
+            }
+        }
+        else if (total > 0 && total < 10) {
+            if (service === 'stripe') {
+                return parseInt(total.toPrecision(3), 0) * 100;
+            }
+            else if (service === 'paypal') {
+                return total;
             }
         }
     };

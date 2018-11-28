@@ -45,16 +45,21 @@ export class PayComponent implements OnInit {
   }
 
   calcAmt(amt, service) {
-    const feeAmt = (amt * 0.029) + amt;
+    const fee = amt * 0.029;
+    const total = amt + fee;
 
-    if (service === 'paypal') {
-      return feeAmt;
-    } else if (service === 'stripe') {
-      if (feeAmt > 9) {
-        return feeAmt * 100;
-      } else {
-        return parseInt(feeAmt.toPrecision(3), 0) * 100;
+      if (total > 9) {
+          if (service === 'stripe') {
+            return total * 100;
+          } else if (service === 'paypal') {
+            return total;
+          }
+      } else if (total > 0 && total < 10) {
+          if (service === 'stripe') {
+            return parseInt(total.toPrecision(3), 0) * 100;
+          } else if (service === 'paypal') {
+            return total;
+          }
       }
     }
-  }
 }
