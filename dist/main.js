@@ -956,8 +956,7 @@ var StripeComponent = /** @class */ (function () {
         // 4. Create listener
         this.paymentRequest.on('source', function (event) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                alert(event);
-                alert('hello');
+                console.log(event);
                 return [2 /*return*/];
             });
         }); });
