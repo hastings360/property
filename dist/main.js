@@ -903,8 +903,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StripeComponent", function() { return StripeComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _stripe_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../stripe.service */ "./src/app/stripe.service.ts");
-/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! events */ "./node_modules/events/events.js");
-/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(events__WEBPACK_IMPORTED_MODULE_2__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -951,11 +949,10 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 };
 
 
-
 var StripeComponent = /** @class */ (function () {
     function StripeComponent(pmt) {
         this.pmt = pmt;
-        this.paymentResults = new events__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
+        this.paymentResults = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     StripeComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
@@ -992,7 +989,7 @@ var StripeComponent = /** @class */ (function () {
                         payment.complete('success');
                     }
                     else {
-                        _this.paymentResults.emit('Falure charging card');
+                        _this.paymentResults.emit('Failure charging card');
                         payment.complete('fail');
                     }
                 })
@@ -1031,7 +1028,7 @@ var StripeComponent = /** @class */ (function () {
     ], StripeComponent.prototype, "formData", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
-        __metadata("design:type", typeof (_a = typeof events__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"] !== "undefined" && events__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]) === "function" && _a || Object)
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
     ], StripeComponent.prototype, "paymentResults", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('payElement'),
@@ -1046,7 +1043,6 @@ var StripeComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_stripe_service__WEBPACK_IMPORTED_MODULE_1__["StripeService"]])
     ], StripeComponent);
     return StripeComponent;
-    var _a;
 }());
 
 

@@ -1,6 +1,5 @@
-import { Component, AfterViewInit, Input, ViewChild, Output } from '@angular/core';
+import { Component, AfterViewInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { StripeService } from '../stripe.service';
-import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-stripe',
@@ -10,7 +9,7 @@ import { EventEmitter } from 'events';
 export class StripeComponent implements AfterViewInit {
 
   @Input() formData: any;
-  @Output() paymentResults: EventEmitter = new EventEmitter();
+  @Output() paymentResults: EventEmitter<string> = new EventEmitter<string>();
 
   elements: any;
   paymentRequest: any;
@@ -57,7 +56,7 @@ export class StripeComponent implements AfterViewInit {
                 this.paymentResults.emit('success');
                 payment.complete('success');
               } else {
-                this.paymentResults.emit('Falure charging card');
+                this.paymentResults.emit('Failure charging card');
                 payment.complete('fail');
               }
           })
