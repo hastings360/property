@@ -48,7 +48,7 @@ export class StripeComponent implements AfterViewInit {
 
       // 4. Create listener
       this.paymentRequest.on('source', async (event) => {
-          console.log(event);
+          alert(event);
 
           // server side http needs to go here
           /*setTimeout(() => {
