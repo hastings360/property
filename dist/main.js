@@ -957,6 +957,10 @@ var StripeComponent = /** @class */ (function () {
         this.paymentRequest.on('source', function (event) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 console.log(event);
+                // server side http needs to go here
+                setTimeout(function () {
+                    event.complete('success');
+                }, 1000);
                 return [2 /*return*/];
             });
         }); });

@@ -50,9 +50,9 @@ export class StripeComponent implements AfterViewInit {
       this.paymentRequest.on('source', async (event) => {
           console.log(event);
           // server side http needs to go here
-          /*setTimeout(() => {
+          setTimeout(() => {
             event.complete('success');
-          }, 1000);*/
+          }, 1000);
       });
 
       // 5. Mount button async
