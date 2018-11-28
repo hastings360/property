@@ -39,6 +39,7 @@ export class PayComponent implements OnInit {
     this.formData.label = formValue.unit + formValue.reason;
     this.formData.amount = (formValue.amount * 0.029) + formValue.amount;
     this.formData.stripeAmount = this.formData.amount * 100;
+    console.log(this.formData.stripeAmount);
     this.paypalUrl = 'https://www.paypal.me/LarryHastings/' + this.formData.amount;
 
     this.billingReady = true;
