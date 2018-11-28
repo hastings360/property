@@ -37,8 +37,7 @@ export class PayComponent implements OnInit {
   onSubmit(formValue) {
     this.formData = formValue;
     this.formData.label = formValue.unit + formValue.reason;
-    this.formData.amount = (formValue.amount * 0.029) + formValue.amount;
-    this.formData.stripeAmount = this.calcStripeAmt(this.formData.amount);
+    this.formData.amount = this.calcStripeAmt(formValue.amount);
     this.paypalUrl = 'https://www.paypal.me/LarryHastings/' + this.formData.amount;
 
     this.billingReady = true;
@@ -46,10 +45,12 @@ export class PayComponent implements OnInit {
   }
 
   calcStripeAmt(amt) {
-    if (amt > 9) {
-      return amt * 100;
+    const feeAmt = (amt * 0.029) * amt;
+
+    if (feeAmt > 9) {
+      return feeAmt * 100;
     } else {
-      return (amt.toPrecision(3) * 100);
+      return parseInt(feeAmt.toPrecision(3), 0) * 100;
     }
   }
 }

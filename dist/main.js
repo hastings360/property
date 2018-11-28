@@ -595,18 +595,18 @@ var PayComponent = /** @class */ (function () {
     PayComponent.prototype.onSubmit = function (formValue) {
         this.formData = formValue;
         this.formData.label = formValue.unit + formValue.reason;
-        this.formData.amount = (formValue.amount * 0.029) + formValue.amount;
-        this.formData.stripeAmount = this.calcStripeAmt(this.formData.amount);
+        this.formData.amount = this.calcStripeAmt(formValue.amount);
         this.paypalUrl = 'https://www.paypal.me/LarryHastings/' + this.formData.amount;
         this.billingReady = true;
         window.scrollTo(0, 0);
     };
     PayComponent.prototype.calcStripeAmt = function (amt) {
-        if (amt > 9) {
-            return amt * 100;
+        var feeAmt = (amt * 0.029) * amt;
+        if (feeAmt > 9) {
+            return feeAmt * 100;
         }
         else {
-            return (amt.toPrecision(3) * 100);
+            return parseInt(feeAmt.toPrecision(3), 0) * 100;
         }
     };
     PayComponent = __decorate([
