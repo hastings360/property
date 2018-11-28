@@ -1,14 +1,11 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MailerService } from '../mailer.service';
 
 @Component({
   selector: 'app-pay',
   templateUrl: './pay.component.html',
   styleUrls: ['./pay.component.css']
 })
-
-
 
 export class PayComponent implements OnInit {
 
@@ -19,20 +16,18 @@ export class PayComponent implements OnInit {
   public billingReady = false;
   public paypalUrl: string;
 
-  constructor(private fb: FormBuilder, private mail: MailerService) {
+  constructor(fb: FormBuilder) {
     this.payForm = fb.group({
         'amount': ['', Validators.compose([Validators.required])],
         'name': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
         'email': ['', Validators.compose([Validators.required, Validators.pattern(/\w+@\w+/)])],
         'reason': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
         'unit': ['', Validators.compose([Validators.required])],
-        'message': ['', Validators.compose([Validators.minLength(4)])],
+        'message': ['', Validators.compose([Validators.minLength(4)])]
     });
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {  }
 
   onSubmit(formValue) {
     const amount = formValue.amount;
@@ -40,9 +35,8 @@ export class PayComponent implements OnInit {
     this.formData = formValue;
     this.formData.label = formValue.unit + formValue.reason;
     this.formData.amount = this.calcAmt(amount, 'stripe');
-    console.log(this.formData.amount);
     this.paypalUrl = 'https://www.paypal.me/LarryHastings/' + this.calcAmt(amount, 'paypal');
-    console.log(this.paypalUrl);
+
     this.billingReady = true;
     window.scrollTo(0, 0);
   }

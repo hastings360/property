@@ -561,7 +561,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayComponent", function() { return PayComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _mailer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mailer.service */ "./src/app/mailer.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -573,11 +572,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-
 var PayComponent = /** @class */ (function () {
-    function PayComponent(fb, mail) {
-        this.fb = fb;
-        this.mail = mail;
+    function PayComponent(fb) {
         this.received = false;
         this.error = false;
         this.billingReady = false;
@@ -587,19 +583,16 @@ var PayComponent = /** @class */ (function () {
             'email': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].pattern(/\w+@\w+/)])],
             'reason': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(4)])],
             'unit': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])],
-            'message': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(4)])],
+            'message': ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(4)])]
         });
     }
-    PayComponent.prototype.ngOnInit = function () {
-    };
+    PayComponent.prototype.ngOnInit = function () { };
     PayComponent.prototype.onSubmit = function (formValue) {
         var amount = formValue.amount;
         this.formData = formValue;
         this.formData.label = formValue.unit + formValue.reason;
         this.formData.amount = this.calcAmt(amount, 'stripe');
-        console.log(this.formData.amount);
         this.paypalUrl = 'https://www.paypal.me/LarryHastings/' + this.calcAmt(amount, 'paypal');
-        console.log(this.paypalUrl);
         this.billingReady = true;
         window.scrollTo(0, 0);
     };
@@ -629,7 +622,7 @@ var PayComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./pay.component.html */ "./src/app/pay/pay.component.html"),
             styles: [__webpack_require__(/*! ./pay.component.css */ "./src/app/pay/pay.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], _mailer_service__WEBPACK_IMPORTED_MODULE_2__["MailerService"]])
+        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]])
     ], PayComponent);
     return PayComponent;
 }());
