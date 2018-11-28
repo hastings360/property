@@ -596,11 +596,18 @@ var PayComponent = /** @class */ (function () {
         this.formData = formValue;
         this.formData.label = formValue.unit + formValue.reason;
         this.formData.amount = (formValue.amount * 0.029) + formValue.amount;
-        this.formData.stripeAmount = this.formData.amount * 100;
-        console.log(this.formData.stripeAmount);
+        this.formData.stripeAmount = this.calcStripeAmt(this.formData.amount);
         this.paypalUrl = 'https://www.paypal.me/LarryHastings/' + this.formData.amount;
         this.billingReady = true;
         window.scrollTo(0, 0);
+    };
+    PayComponent.prototype.calcStripeAmt = function (amt) {
+        if (amt > 9) {
+            return amt * 100;
+        }
+        else {
+            return (amt.toPrecision(3) * 100);
+        }
     };
     PayComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
