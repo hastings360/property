@@ -35,11 +35,14 @@ export class PayComponent implements OnInit {
   }
 
   onSubmit(formValue) {
+    const amount = formValue.amount;
+
     this.formData = formValue;
     this.formData.label = formValue.unit + formValue.reason;
-    this.formData.amount = this.calcAmt(formValue.amount, 'stripe');
-    this.paypalUrl = 'https://www.paypal.me/LarryHastings/' + this.calcAmt(formValue.amount, 'paypal');
-
+    this.formData.amount = this.calcAmt(amount, 'stripe');
+    console.log(this.formData.amount);
+    this.paypalUrl = 'https://www.paypal.me/LarryHastings/' + this.calcAmt(amount, 'paypal');
+    console.log(this.paypalUrl);
     this.billingReady = true;
     window.scrollTo(0, 0);
   }
@@ -56,9 +59,9 @@ export class PayComponent implements OnInit {
           }
       } else if (total > 0 && total < 10) {
           if (service === 'stripe') {
-            return parseInt(total.toPrecision(3), 0) * 100;
+            return total.toPrecision(3) * 100;
           } else if (service === 'paypal') {
-            return total;
+            return total.toPrecision(3);
           }
       }
     }
