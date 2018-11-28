@@ -944,7 +944,7 @@ var StripeComponent = /** @class */ (function () {
             country: 'US',
             currency: 'usd',
             total: {
-                amount: this.formData.stripeAmount,
+                amount: this.formData.amount,
                 label: this.formData.label
             },
             requestPayerName: true
