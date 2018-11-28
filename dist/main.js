@@ -601,7 +601,7 @@ var PayComponent = /** @class */ (function () {
         window.scrollTo(0, 0);
     };
     PayComponent.prototype.calcStripeAmt = function (amt) {
-        var feeAmt = (amt * 0.029) * amt;
+        var feeAmt = (amt * 0.029) + amt;
         if (feeAmt > 9) {
             return feeAmt * 100;
         }

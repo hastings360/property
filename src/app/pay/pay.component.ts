@@ -45,7 +45,7 @@ export class PayComponent implements OnInit {
   }
 
   calcStripeAmt(amt) {
-    const feeAmt = (amt * 0.029) * amt;
+    const feeAmt = (amt * 0.029) + amt;
 
     if (feeAmt > 9) {
       return feeAmt * 100;
