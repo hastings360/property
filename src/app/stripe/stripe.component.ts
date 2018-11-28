@@ -11,9 +11,9 @@ export class StripeComponent implements AfterViewInit {
   @Input() formData: any;
   @Output() paymentResults: EventEmitter<string> = new EventEmitter<string>();
 
-  elements: any;
-  paymentRequest: any;
-  prButton: any;
+  public elements: any;
+  public paymentRequest: any;
+  public prButton: any;
 
 
   // Used to mount button
@@ -50,9 +50,9 @@ export class StripeComponent implements AfterViewInit {
 
       // 4. Create listener
       this.paymentRequest.on('token', async (payment) => {
-        this.paymentRequest(payment.token)
+        this.pmt.submitPayment(payment.token)
           .then(results => {
-              if (results.ok) {
+              if (results === 'success') {
                 this.paymentResults.emit('success');
                 payment.complete('success');
               } else {

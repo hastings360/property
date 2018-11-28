@@ -982,9 +982,9 @@ var StripeComponent = /** @class */ (function () {
         this.paymentRequest.on('token', function (payment) { return __awaiter(_this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                this.paymentRequest(payment.token)
+                this.pmt.submitPayment(payment.token)
                     .then(function (results) {
-                    if (results.ok) {
+                    if (results === 'success') {
                         _this.paymentResults.emit('success');
                         payment.complete('success');
                     }
