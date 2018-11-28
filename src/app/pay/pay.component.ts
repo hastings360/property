@@ -59,4 +59,8 @@ export class PayComponent implements OnInit {
           }
       }
     }
+
+  stripeResults(event) {
+    console.log(event);
+  }
 }

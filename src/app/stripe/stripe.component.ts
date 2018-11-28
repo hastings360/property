@@ -1,5 +1,6 @@
-import { Component, AfterViewInit, Input, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, Input, ViewChild, Output } from '@angular/core';
 import { StripeService } from '../stripe.service';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-stripe',
@@ -9,10 +10,12 @@ import { StripeService } from '../stripe.service';
 export class StripeComponent implements AfterViewInit {
 
   @Input() formData: any;
+  @Output() paymentResults: EventEmitter = new EventEmitter();
 
   elements: any;
   paymentRequest: any;
   prButton: any;
+
 
   // Used to mount button
   @ViewChild('payElement') payElement;
@@ -47,12 +50,21 @@ export class StripeComponent implements AfterViewInit {
       });
 
       // 4. Create listener
-      this.paymentRequest.on('source', async (event) => {
-          console.log(event);
-          // server side http needs to go here
-          setTimeout(() => {
-            event.complete('success');
-          }, 1000);
+      this.paymentRequest.on('token', async (payment) => {
+        this.paymentRequest(payment.token)
+          .then(results => {
+              if (results.ok) {
+                this.paymentResults.emit('success');
+                payment.complete('success');
+              } else {
+                this.paymentResults.emit('Falure charging card');
+                payment.complete('fail');
+              }
+          })
+          .catch(error => {
+            this.paymentResults.emit('fail');
+            console.log(error + 'Issue connecting to backend server');
+          });
       });
 
       // 5. Mount button async

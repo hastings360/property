@@ -42,7 +42,7 @@
         <div class="payment-types">
           <h2>Use Google Pay or Apple Pay in your browser</h2>
           <p>This may have limited support on your browser or phone as it is a new feature.  If you see the button, though, you are good!</p>
-          <div id="stripe-button"><app-stripe  [formData]="formData">Loading...</app-stripe></div>
+          <div id="stripe-button"><app-stripe  [formData]="formData" (paymentResults)="stripeResults($event)">Loading...</app-stripe></div>
         </div>
 
          <div id="paypal" class="payment-types">
