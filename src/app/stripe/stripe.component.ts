@@ -42,8 +42,9 @@ export class StripeComponent implements AfterViewInit {
         paymentRequest: this.paymentRequest,
         style: {
           paymentRequestButton: {
-            type: 'buy', // 'default' | 'donate' | 'buy',
-            theme:  'dark' // 'dark' | 'light' | 'light-outline'
+            type: 'pay', // 'default' | 'donate' | 'buy',
+            theme:  'dark', // 'dark' | 'light' | 'light-outline'
+            height: '60px'
           }
         }
       });
