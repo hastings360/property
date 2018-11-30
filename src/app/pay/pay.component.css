@@ -103,11 +103,13 @@ p{
   padding: 5px;
   width: 185px;
   height: 60px;
+  background-color: #99badd;
+  color: #fff;
 }
 #billing-container button:hover{
   cursor: pointer;
-  background-color: #99badd;
-  color: #fff;
+  background-color: #fff;
+  color: #99badd;
 }
 #stripe-button{
   width: 185px;
