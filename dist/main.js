@@ -973,7 +973,7 @@ var StripeComponent = /** @class */ (function () {
             paymentRequest: this.paymentRequest,
             style: {
                 paymentRequestButton: {
-                    type: 'pay',
+                    type: 'default',
                     theme: 'dark',
                     height: '60px'
                 }

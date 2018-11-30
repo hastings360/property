@@ -42,7 +42,7 @@ export class StripeComponent implements AfterViewInit {
         paymentRequest: this.paymentRequest,
         style: {
           paymentRequestButton: {
-            type: 'pay', // 'default' | 'donate' | 'buy',
+            type: 'default', // 'default' | 'donate' | 'buy',
             theme:  'dark', // 'dark' | 'light' | 'light-outline'
             height: '60px'
           }
