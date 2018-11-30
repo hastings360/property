@@ -597,22 +597,22 @@ var PayComponent = /** @class */ (function () {
         window.scrollTo(0, 0);
     };
     PayComponent.prototype.calcAmt = function (amt, service) {
-        var fee = amt * 0.029;
-        var total = amt + fee;
-        if (total > 9) {
-            if (service === 'stripe') {
-                return total * 100;
-            }
-            else if (service === 'paypal') {
-                return total;
-            }
+        var total = (amt * 0.029) + amt;
+        if (service === 'paypal') {
+            return total.toFixed(2);
         }
-        else if (total > 0 && total < 10) {
-            if (service === 'stripe') {
-                return total.toPrecision(3) * 100;
+        else if (service === 'stripe') {
+            if (total > 999) {
+                return total.toPrecision(6) * 100;
             }
-            else if (service === 'paypal') {
-                return total.toPrecision(3);
+            else if (total > 99) {
+                return total.toPrecision(5) * 100;
+            }
+            else if (total > 9) {
+                return total.toPrecision(4) * 100;
+            }
+            else if (total > 0 && total < 10) {
+                return total.toPrecision(3) * 100;
             }
         }
     };
