@@ -145,4 +145,8 @@ p{
   #stripe-button{
     margin-top: 0px;
   }
+  #billing-container button{
+    padding: 1px;
+    height: 35px;
+  }
 }
