@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\nbody{\n  margin: 0px;\n  font-size: 1rem;\n}\n.container{\n  width: 1000px;\n  margin: 0 auto;\n}\n.gray-bg{\n  min-height: 400px;\n  background-color: #8c8c8c;\n}\nh1{\n  text-align: center;\n  font-size: 6em;\n  text-shadow: 1px 1px 0 #fff;\n  color: #99badd;\n}\nh2{\n  font-size: 4em;\n  text-align: center;\n  color: #99badd;\n  text-shadow: 1px 1px 0 #000;\n  margin: 5px 0;\n}\n@media screen and (max-width: 1020px){\n  .container{\n    width: 94%;\n    padding: 0 3%;\n  }\n}\n@media screen and (max-width: 767px){\n  body{\n    font-size: 0.8rem;\n  }\n  h1{\n    font-size: 3em !important;\n  }\n  h2{\n    font-size: 3em;\n  }\n}\n"
+module.exports = "/* You can add global styles to this file, and also import other style files */\nbody{\n  margin: 0px;\n  font-size: 1rem;\n}\n.container{\n  width: 1000px;\n  margin: 0 auto;\n}\n.gray-bg{\n  min-height: 400px;\n  background-color: #8c8c8c;\n}\nh1{\n  text-align: center;\n  font-size: 6em;\n  text-shadow: 1px 1px 0 #fff;\n  color: #99badd;\n}\nh2{\n  font-size: 4em;\n  text-align: center;\n  color: #99badd;\n  text-shadow: 1px 1px 0 #000;\n  margin: 5px 0;\n}\n@media screen and (max-width: 1020px){\n  .container{\n    width: 94%;\n    padding: 0 3%;\n  }\n}\n@media screen and (max-width: 767px){\n  body{\n    font-size: 0.8rem;\n  }\n  h1{\n    font-size: 3em !important;\n  }\n  h2{\n    font-size: 3em;\n  }\n}\n@media screen and (max-width: 350px){\n  body{\n    font-size: 0.5rem;\n  }\n}\n"
 
 /***/ }),
 
