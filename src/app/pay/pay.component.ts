@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -7,14 +7,16 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./pay.component.css']
 })
 
-export class PayComponent implements OnInit {
+export class PayComponent {
 
   public payForm: FormGroup;
+  public formData: any;
+  public paypalUrl: string;
+
+  public billingReady = false;
+
   public received = false;
   public error = false;
-  public formData: any;
-  public billingReady = false;
-  public paypalUrl: string;
 
   constructor(fb: FormBuilder) {
     this.payForm = fb.group({
@@ -27,11 +29,8 @@ export class PayComponent implements OnInit {
     });
   }
 
-  ngOnInit() {  }
-
   onSubmit(formValue) {
     const amount = formValue.amount;
-
     this.formData = formValue;
     this.formData.label = formValue.unit + formValue.reason;
     this.formData.amount = this.calcAmt(amount, 'stripe');
@@ -59,7 +58,12 @@ export class PayComponent implements OnInit {
     }
   }
 
-  stripeResults(event: string) {
-    console.log(event);
+  stripeResults(resultsEvent: string) {
+    if (resultsEvent === 'success') {
+      this.received = true;
+    } else if (resultsEvent === 'fail') {
+      this.error = true;
+    }
+    this.billingReady = false;
   }
 }

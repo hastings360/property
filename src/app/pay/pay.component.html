@@ -34,10 +34,10 @@
 
           </div>
           <p>Is everything filled out correctly?</p>
-          <button type="submit" id="pay-submit" ><strong>Go to Billing Info</strong></button>
+          <button type="submit" id="pay-submit" *ngIf="payForm.valid"><strong>Go to Billing Info</strong></button>
       </form>
       <div id="billing-container" *ngIf="billingReady">
-          <div id="disclaimer"><span>Disclaimer:</span> Both of the payment types below charge a <span>2.9%</span> convenience fee that will be added to your transaction.  If you wish to avoid this fee, use the contact button at the bottom to make other arrangments. Payments still must be on time, and any late fees for rent, etc... will be applied no matter what payment method you use.  Please only make one payment request or you may be charged more than once.</div>
+          <div id="disclaimer"><span>Disclaimer:</span> Both of the payment types below charge a <span>2.9%</span> convenience fee that will be added to your transaction.  If you wish to avoid this fee, use the contact button at the bottom to make other arrangments. Payments still must be on time, and any late fees for rent,      etc... will be applied no matter what payment method you use.  Please only make one payment request or you may be charged more than once.</div>
 
         <div class="bg-grey payment-types">
           <h2>Use Google Pay or Apple Pay in your browser</h2>
@@ -45,7 +45,7 @@
           <div id="stripe-button"><app-stripe  [formData]="formData" (paymentResults)="stripeResults($event)">Loading...</app-stripe></div>
         </div>
 
-         <div id="paypal" class="payment-types">
+        <div id="paypal" class="payment-types">
           <h2>If that doesn't suit you, go directly to PayPal</h2>
           <p>This will take you to the PayPal site where you can complete the payment and I will email you the confirmation.</p>
           <a href="{{paypalUrl}}" target="_blank"><div id="paypal">
@@ -227,7 +227,6 @@
               </svg>
 
           </div></a>
-
         </div>
 
         <div class="bg-grey payment-types">
@@ -235,6 +234,12 @@
           <p>You can mail a check or possibly make other arrangements.  Please use the contact form for further information.</p>
           <button><a href="/home#contact">Contact</a></button>
         </div>
+      </div>
+      <div id="error-message" *ngIf="error">
+        <p>An error has occured with your payment.  Please try again or use the contact form.</p>
+      </div>
+      <div id="received-message" *ngIf="received">
+        <p>You payment has been received.  You should receive a confirmation email, to the one supplied, shortly.</p>
       </div>
   </div>
 </section>

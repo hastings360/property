@@ -89,6 +89,20 @@ p{
   margin-bottom: 5px;
   background-color: green;
 }
+.message{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  margin-bottom: 5px;
+}
+#error-message{
+  background-color: #bf3d3d;
+}
+#received-message{
+  background-color: #5d9661;
+}
 #billing-container p{
   color: #fff;
   text-shadow: 1px 1px 0px #000;
