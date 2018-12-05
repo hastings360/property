@@ -101,6 +101,9 @@ p{
 #error-message{
   background-color: #bf3d3d;
 }
+#error-message p{
+  color: #fff;
+}
 #received-message{
   background-color: #5d9661;
 }
