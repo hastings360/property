@@ -984,7 +984,7 @@ var StripeComponent = /** @class */ (function () {
             var _this = this;
             return __generator(this, function (_a) {
                 console.log(payment.token.id);
-                this.pmt.submitPayment(payment.token.id)
+                this.pmt.submitPayment(JSON.stringify(payment.token.id))
                     .then(function (results) {
                     if (results === 'success') {
                         _this.paymentResults.emit('success');
