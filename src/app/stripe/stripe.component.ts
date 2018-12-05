@@ -51,20 +51,16 @@ export class StripeComponent implements AfterViewInit {
 
       // 4. Create listener
       this.paymentRequest.on('token', async (payment) => {
-        console.log(payment.token.id);
         this.pmt.submitPayment(payment.token.id, this.formData)
-          .then(results => {
-              if (results === 'success') {
-                this.paymentResults.emit('success');
-                payment.complete('success');
-              } else {
-                this.paymentResults.emit('Failure charging card');
-                payment.complete('fail');
-              }
+          .then(success => {
+              console.log(success);
+              this.paymentResults.emit('success');
+              payment.complete('success');
           })
           .catch(error => {
             this.paymentResults.emit('fail');
-            console.log(error + 'Issue connecting to backend server');
+            console.log(error);
+            payment.complete('fail');
           });
       });
 

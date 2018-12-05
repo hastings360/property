@@ -984,21 +984,16 @@ var StripeComponent = /** @class */ (function () {
         this.paymentRequest.on('token', function (payment) { return __awaiter(_this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                console.log(payment.token.id);
                 this.pmt.submitPayment(payment.token.id, this.formData)
-                    .then(function (results) {
-                    if (results === 'success') {
-                        _this.paymentResults.emit('success');
-                        payment.complete('success');
-                    }
-                    else {
-                        _this.paymentResults.emit('Failure charging card');
-                        payment.complete('fail');
-                    }
+                    .then(function (success) {
+                    console.log(success);
+                    _this.paymentResults.emit('success');
+                    payment.complete('success');
                 })
                     .catch(function (error) {
                     _this.paymentResults.emit('fail');
-                    console.log(error + 'Issue connecting to backend server');
+                    console.log(error);
+                    payment.complete('fail');
                 });
                 return [2 /*return*/];
             });
