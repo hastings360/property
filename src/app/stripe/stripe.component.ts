@@ -51,6 +51,7 @@ export class StripeComponent implements AfterViewInit {
 
       // 4. Create listener
       this.paymentRequest.on('source', async (payment) => {
+        console.log(payment);
         this.pmt.submitPayment(payment.source)
           .then(results => {
               if (results === 'success') {
