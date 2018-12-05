@@ -853,8 +853,9 @@ var StripeService = /** @class */ (function () {
         this.http = http;
         this.stripe = new Stripe(src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].publicKey);
     }
-    StripeService.prototype.submitPayment = function (token) {
-        return this.http.post('api/stripe', token).toPromise();
+    StripeService.prototype.submitPayment = function (token, formData) {
+        formData.token = token;
+        return this.http.post('api/stripe', formData).toPromise();
     };
     StripeService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -984,7 +985,7 @@ var StripeComponent = /** @class */ (function () {
             var _this = this;
             return __generator(this, function (_a) {
                 console.log(payment.token.id);
-                this.pmt.submitPayment(JSON.stringify(payment.token.id))
+                this.pmt.submitPayment(payment.token.id, this.formData)
                     .then(function (results) {
                     if (results === 'success') {
                         _this.paymentResults.emit('success');

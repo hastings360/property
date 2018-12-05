@@ -11,7 +11,9 @@ export class StripeService {
 
   constructor(private http: HttpClient) { }
 
-  submitPayment(token) {
-    return this.http.post('api/stripe', token).toPromise();
+  submitPayment(token, formData) {
+    formData.token = token;
+
+    return this.http.post('api/stripe', formData).toPromise();
   }
 }
