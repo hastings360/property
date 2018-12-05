@@ -980,10 +980,10 @@ var StripeComponent = /** @class */ (function () {
             }
         });
         // 4. Create listener
-        this.paymentRequest.on('token', function (payment) { return __awaiter(_this, void 0, void 0, function () {
+        this.paymentRequest.on('source', function (payment) { return __awaiter(_this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                this.pmt.submitPayment(payment.token)
+                this.pmt.submitPayment(payment.source)
                     .then(function (results) {
                     if (results === 'success') {
                         _this.paymentResults.emit('success');

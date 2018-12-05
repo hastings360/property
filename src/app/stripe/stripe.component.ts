@@ -50,8 +50,8 @@ export class StripeComponent implements AfterViewInit {
       });
 
       // 4. Create listener
-      this.paymentRequest.on('token', async (payment) => {
-        this.pmt.submitPayment(payment.token)
+      this.paymentRequest.on('source', async (payment) => {
+        this.pmt.submitPayment(payment.source)
           .then(results => {
               if (results === 'success') {
                 this.paymentResults.emit('success');
