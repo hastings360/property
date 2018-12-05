@@ -54,7 +54,7 @@ textarea{
 p{
   text-align: center;
   font-size: 1.2em;
-  padding: 1em;
+  padding: 1em 1em 0.2em 1em;
 }
 #pay-submit{
   display: block;
