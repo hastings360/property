@@ -635,7 +635,7 @@ var PayComponent = /** @class */ (function () {
         this.mail.sendMail(formData);
     };
     PayComponent.prototype.paypalSubmit = function (formData) {
-        formData.amount = formData - (formData * 0.029);
+        formData.amount = this.paypalUrl;
         this.email(formData, 'paypal');
         this.received = true;
     };

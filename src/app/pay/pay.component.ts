@@ -76,7 +76,7 @@ export class PayComponent {
   }
 
   paypalSubmit(formData) {
-    formData.amount = formData - (formData * 0.029);
+    formData.amount = this.paypalUrl;
     this.email(formData, 'paypal');
     this.received = true;
   }
