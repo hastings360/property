@@ -232,14 +232,17 @@
         <div class="bg-grey payment-types">
           <h2>Still can't find what you need?</h2>
           <p>You can mail a check or possibly make other arrangements.  Please use the contact form for further information.</p>
-          <button><a href="/home#contact">Contact</a></button>
+          <button><a [routerLink]="['/home#contact']">Contact</a></button>
         </div>
       </div>
       <div id="error-message" class="message" *ngIf="error">
         <p>An error has occured with your payment. Please try again or use the contact form.</p>
+        <button>Try Again</button>
+        <a [routerLink]="['/home#contact']"><button>Contact</button></a>
       </div>
       <div id="received-message" class="message" *ngIf="received">
         <p>You payment has been received. You should receive a confirmation email, to the one supplied, shortly.</p>
+        <a [routerLink]="['/home']">Return to Home Page</a>
       </div>
   </div>
 </section>
