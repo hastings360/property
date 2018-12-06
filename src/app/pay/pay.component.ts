@@ -41,6 +41,7 @@ export class PayComponent {
     window.scrollTo(0, 0);
   }
 
+  // may need to remove for paypal since sender is charged the fee.  Leaving for now
   calcAmt(amt, service) {
     const total = (amt * 0.029) + amt;
 
@@ -75,6 +76,7 @@ export class PayComponent {
   }
 
   paypalSubmit(formData) {
+    formData.amount = formData - (formData * 0.029);
     this.email(formData, 'paypal');
     this.received = true;
   }

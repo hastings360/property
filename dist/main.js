@@ -599,6 +599,7 @@ var PayComponent = /** @class */ (function () {
         this.billingReady = true;
         window.scrollTo(0, 0);
     };
+    // may need to remove for paypal since sender is charged the fee.  Leaving for now
     PayComponent.prototype.calcAmt = function (amt, service) {
         var total = (amt * 0.029) + amt;
         if (service === 'paypal') {
@@ -634,6 +635,7 @@ var PayComponent = /** @class */ (function () {
         this.mail.sendMail(formData);
     };
     PayComponent.prototype.paypalSubmit = function (formData) {
+        formData.amount = formData - (formData * 0.029);
         this.email(formData, 'paypal');
         this.received = true;
     };
