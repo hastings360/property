@@ -37,7 +37,7 @@
           <button type="submit" id="pay-submit" *ngIf="payForm.valid"><strong>Go to Billing Info</strong></button>
       </form>
       <div id="billing-container" *ngIf="billingReady">
-          <div id="disclaimer"><span>Disclaimer:</span> Both of the payment types below charge a <span>2.9%</span> convenience fee that will be added to your transaction.  If you wish to avoid this fee, use the contact button at the bottom to make other arrangments. Payments still must be on time, and any late fees for rent,      etc... will be applied no matter what payment method you use.  Please only make one payment request or you may be charged more than once.</div>
+          <div id="disclaimer"><span>Disclaimer:</span> The first payment type below charges a <span>2.9%</span> convenience fee that will be added because it is a card transaction.  Paypal may or may not charge you a fee depending on the payment type you use. Make other arrangements by using the contact button at the bottom. Payments still must be on time, and any late fees for rent, etc... will be applied no matter what payment method you use. Please only make one payment request or you may be charged more than once.</div>
 
         <div class="bg-grey payment-types">
           <h2>Use Google Pay or Apple Pay in your browser</h2>
@@ -237,6 +237,7 @@
       </div>
       <div id="error-message" class="message" *ngIf="error">
         <p>An error has occured with your payment. Please try again or use the contact form.</p>
+        <hr>
         <button (click)="error=true">Try Again</button>
         <button><a href='/home#contact'>Contact</a></button>
       </div>
@@ -244,6 +245,7 @@
         <p>You payment has been received. You should receive a confirmation email, to the one supplied, shortly.</p>
         <hr>
         <p>If you used paypal, you must complete the process on that end before you receive the confirmation.</p>
+        <hr>
         <button><a href='/home'>Back to Home Page</a></button>
       </div>
   </div>

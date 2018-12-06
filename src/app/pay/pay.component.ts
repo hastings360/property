@@ -35,7 +35,7 @@ export class PayComponent {
     this.formData = formValue;
     this.formData.label = formValue.unit + formValue.reason;
     this.formData.amount = this.calcAmt(amount, 'stripe');
-    this.paypalUrl = 'https://www.paypal.me/LarryHastings/' + this.calcAmt(amount, 'paypal');
+    this.paypalUrl = 'https://www.paypal.me/LarryHastings/' + amount;
 
     this.billingReady = true;
     window.scrollTo(0, 0);
