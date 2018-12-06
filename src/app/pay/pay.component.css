@@ -56,19 +56,35 @@ p{
   font-size: 1.2em;
   padding: 1em 1em 0.2em 1em;
 }
-#pay-submit{
+button{
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 5px auto;
   padding: 10px;
   font-size: 1.2em;
-  color: #000;
+  color: #fff;
   background-color: #99badd;
   border-radius: 5px;
 }
-#pay-submit:hover{
+button:hover{
   color: #99badd;
   background-color: #fff;
   cursor: pointer;
+}
+button:hover a{
+  color: #99badd;
+}
+button a{
+  text-decoration: none;
+  color: #fff;
+}
+#billing-container button{
+  font-size: 1.5em;
+  padding: 5px;
+  width: 185px;
+  height: 60px;
+}
+#pay-submit{
+  border-radius: 5px;
 }
 #disclaimer{
   padding: 10px 2em 10px 2em;
@@ -96,8 +112,9 @@ p{
   left: 0px;
   margin-bottom: 5px;
   font-size: 1.5em;
-  padding-top: 2em;
+  padding: 2em auto;
 }
+
 #error-message{
   background-color: #bf3d3d;
 }
@@ -111,26 +128,7 @@ p{
   color: #fff;
   text-shadow: 1px 1px 0px #000;
 }
-#billing-container a{
-  text-decoration: none;
-  color: #fff;
-}
-#billing-container button{
-  display: block;
-  margin: 0 auto 0 auto;
-  font-size: 1.5em;
-  padding: 5px;
-  width: 185px;
-  height: 60px;
-  background-color: #99badd;
-}
-#billing-container button:hover{
-  cursor: pointer;
-  background-color: #fff;
-}
-#billing-container button:hover a{
-  color: #99badd;
-}
+
 #stripe-button{
   width: 185px;
   margin: 25px auto 10px auto;

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, EmailValidator } from '@angular/forms';
+import { MailerService } from '../mailer.service';
 
 @Component({
   selector: 'app-pay',
@@ -18,7 +19,7 @@ export class PayComponent {
   public received = false;
   public error = false;
 
-  constructor(fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private mail: MailerService) {
     this.payForm = fb.group({
         'amount': ['', Validators.compose([Validators.required])],
         'name': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
@@ -61,9 +62,19 @@ export class PayComponent {
   stripeResults(resultsEvent: string) {
     if (resultsEvent === 'success') {
       this.received = true;
+      this.email(this.formData);
     } else if (resultsEvent === 'fail') {
       this.error = true;
     }
     this.billingReady = false;
+  }
+
+  email(formData) {
+    this.mail.sendMail(formData);
+  }
+
+  paypalSubmit(formData) {
+    this.mail.sendMail(formData);
+    this.received = true;
   }
 }
