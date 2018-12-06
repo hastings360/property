@@ -62,19 +62,20 @@ export class PayComponent {
   stripeResults(resultsEvent: string) {
     if (resultsEvent === 'success') {
       this.received = true;
-      this.email(this.formData);
+      this.email(this.formData, 'stripe');
     } else if (resultsEvent === 'fail') {
       this.error = true;
     }
     this.billingReady = false;
   }
 
-  email(formData) {
+  email(formData, from) {
+    formData.from = from;
     this.mail.sendMail(formData);
   }
 
   paypalSubmit(formData) {
-    this.mail.sendMail(formData);
+    this.email(formData, 'paypal');
     this.received = true;
   }
 }

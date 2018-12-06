@@ -622,18 +622,19 @@ var PayComponent = /** @class */ (function () {
     PayComponent.prototype.stripeResults = function (resultsEvent) {
         if (resultsEvent === 'success') {
             this.received = true;
-            this.email(this.formData);
+            this.email(this.formData, 'stripe');
         }
         else if (resultsEvent === 'fail') {
             this.error = true;
         }
         this.billingReady = false;
     };
-    PayComponent.prototype.email = function (formData) {
+    PayComponent.prototype.email = function (formData, from) {
+        formData.from = from;
         this.mail.sendMail(formData);
     };
     PayComponent.prototype.paypalSubmit = function (formData) {
-        this.mail.sendMail(formData);
+        this.email(formData, 'paypal');
         this.received = true;
     };
     PayComponent = __decorate([
