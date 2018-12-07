@@ -12,4 +12,7 @@ export class SplashComponent implements OnInit {
   ngOnInit() {
   }
 
+  scrollDown() {
+    window.scroll(0, 600);
+  }
 }

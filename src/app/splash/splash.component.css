@@ -76,6 +76,7 @@ span{
 }
 #scroller:hover{
   border-top: 40px solid #bc0600;
+  cursor: pointer;
 }
 @keyframes blinker{
     0%   {opacity: 0.5;}
